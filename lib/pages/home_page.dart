@@ -11,17 +11,29 @@ class HomePage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: Colors.blue.shade200,
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: logout,
-            icon: const Icon(Icons.logout),
-          )
-        ],
+        backgroundColor: Colors.transparent,
         centerTitle: true,
         title: const Text("Home Page"),
       ),
-      body: Center(child: Text("Welcome ${FirebaseAuth.instance.currentUser?.email}"),),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+                "Welcome, You logged with ${FirebaseAuth.instance.currentUser?.email}"),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          // logout button
+          ElevatedButton(
+            onPressed: logout,
+            child: const Text("Logout"),
+          )
+        ],
+      ),
     );
   }
 }
