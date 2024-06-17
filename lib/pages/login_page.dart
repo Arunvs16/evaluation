@@ -38,48 +38,58 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         centerTitle: true,
         title: const Text("Login Page"),
       ),
-      backgroundColor: Colors.blue.shade400,
-      body: Column(
-        children: [
-          // welcome text
-          const Text("Login with your email and password"),
-
-          const SizedBox(
-            height: 40,
-          ),
-
-          // email text field
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: MyTextField(
-              controller: emailController,
-              hintText: 'Email',
-              obscureText: false,
+      backgroundColor: Colors.blue.shade100,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 200,
             ),
-          ),
+            // welcome text
+            const Text("Login with your email and password"),
 
-          const SizedBox(
-            height: 20,
-          ),
-          // password textfield
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: MyTextField(
-              controller: passwordController,
-              hintText: 'Password',
-              obscureText: false,
+            const SizedBox(
+              height: 40,
             ),
-          ),
 
-          const SizedBox(
-            height: 40,
-          ),
-          // login button
-          TextButton(onPressed: login, child: const Text('Login'))
-        ],
+            // email text field
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: MyTextField(
+                controller: emailController,
+                hintText: 'Email',
+                obscureText: false,
+              ),
+            ),
+
+            const SizedBox(
+              height: 20,
+            ),
+            // password textfield
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: MyTextField(
+                controller: passwordController,
+                hintText: 'Password',
+                obscureText: false,
+              ),
+            ),
+
+            const SizedBox(
+              height: 40,
+            ),
+
+            // login button
+            ElevatedButton(
+              onPressed: login,
+              child: const Text('Login'),
+            )
+          ],
+        ),
       ),
     );
   }
