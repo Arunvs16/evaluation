@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         title: const Text("Home Page"),
       ),
+      body: Center(child: Text("Welcome ${FirebaseAuth.instance.currentUser?.email}"),),
     );
   }
 }
